@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "__AjaxAntiForgeryForm" }))
+{
+    @Html.AntiForgeryToken()
+}
+
+<div>
+    <h1>ASP.NET</h1>
+
+
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+
+</div>
+
+<div class="row">
+
+    <div>
+        <input type="text" id="usernameInput" placeholder="Username" />
+        <input type="text" id="passwordInput" placeholder="Password" />
+        <button id="submit">Submit</button>
+
+    </div>
+</div>
+<div id="dataDiv"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="~/Scripts/Home/homeService.js"></script>
+<script src="~/Scripts/Home/homeController.js"></script>
