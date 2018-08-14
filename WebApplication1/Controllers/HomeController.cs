@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TestAppFullStack.BAL;
 using TestAppFullStack.Models;
 
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IProcessLogic processLogic;
+        public HomeController(IProcessLogic processLogic)
+        {
+            this.processLogic = processLogic;
+        }
         public ActionResult Index()
         {
             return View();
@@ -43,11 +49,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult GetEmpData(int empID)
         {
-            List<Employee> empList = new List<Employee>();
-            empList.Add(new Employee { EmpID = 1, FirstName = "Sayed", LastName = "Parvez",  Contact = 989947984 });
-            empList.Add(new Employee { EmpID = 1, FirstName = "Pankaj", LastName = "Kumar",  Contact = 989947984 });
-            empList.Add(new Employee { EmpID = 1, FirstName = "Rashmi", LastName = "Johari",  Contact = 989947984 });
-
+            var empList = processLogic.GetEmpData(empID);
             return Json(empList, JsonRequestBehavior.AllowGet);
         }
     }

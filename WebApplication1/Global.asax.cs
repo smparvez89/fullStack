@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using TestAppFullStack;
 
 namespace WebApplication1
 {
@@ -13,6 +14,7 @@ namespace WebApplication1
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            UnityMvcActivator.Start();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
