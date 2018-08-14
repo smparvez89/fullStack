@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TestAppFullStack.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -36,6 +37,18 @@ namespace WebApplication1.Controllers
             else
                 securedInfo = "Wrong username or password, please retry.";
             return securedInfo;
+
+        }
+
+        [HttpPost]
+        public ActionResult GetEmpData(int empID)
+        {
+            List<Employee> empList = new List<Employee>();
+            empList.Add(new Employee { EmpID = 1, FirstName = "Sayed", LastName = "Parvez",  Contact = 989947984 });
+            empList.Add(new Employee { EmpID = 1, FirstName = "Pankaj", LastName = "Kumar",  Contact = 989947984 });
+            empList.Add(new Employee { EmpID = 1, FirstName = "Rashmi", LastName = "Johari",  Contact = 989947984 });
+
+            return Json(empList, JsonRequestBehavior.AllowGet);
         }
     }
 }
