@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TestAppFullStack.DAL;
 using TestAppFullStack.Models;
 
 namespace TestAppFullStack.BAL
 {
     public class ProcessLogic : IProcessLogic
     {
+        private readonly IProcessRepository processRepository;
+
+        public ProcessLogic(IProcessRepository processRepository)
+        {
+            this.processRepository = processRepository;
+        }
+
         public List<Employee> GetEmpData(int empID)
         {
-            List<Employee> lstEmployee = new List<Employee>();
-            lstEmployee.Add(new Employee { EmpID = 1, FirstName = "Sayed", LastName = "Parvez", Contact = 989115222 });
-            lstEmployee.Add(new Employee { EmpID = 2, FirstName = "Pankaj", LastName = "Kumar", Contact = 779115222 });
-            lstEmployee.Add(new Employee { EmpID = 3, FirstName = "Rashmi", LastName = "Johari", Contact = 779115222 });
-            return lstEmployee;
+            return processRepository.GetEmpData(empID);
         }
     }
 }

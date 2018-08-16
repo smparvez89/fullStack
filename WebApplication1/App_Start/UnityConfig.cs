@@ -1,5 +1,6 @@
 using System;
 using TestAppFullStack.BAL;
+using TestAppFullStack.DAL;
 using Unity;
 
 namespace TestAppFullStack
@@ -43,6 +44,7 @@ namespace TestAppFullStack
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IProcessLogic, ProcessLogic>();
+            container.RegisterType<IProcessRepository, ProcessRepository>();
         }
     }
 }

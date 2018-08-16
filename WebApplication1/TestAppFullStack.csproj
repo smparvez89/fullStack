@@ -164,6 +164,8 @@
     <Compile Include="BAL\IProcessLogic.cs" />
     <Compile Include="BAL\ProcessLogic.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\ProcessRepository.cs" />
+    <Compile Include="DAL\IProcessRepository.cs.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
